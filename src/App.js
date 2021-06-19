@@ -6,6 +6,9 @@ import Register from './components/Register';
 
 import { AuthProvider } from "./contexts/AuthContext"
 import Home from './components/Home';
+import Header from './components/Header';
+import SignInOptions from './components/SignInOptions';
+import RegisterParent from './components/RegisterParent';
 
 export default function App() {
   return (
@@ -14,7 +17,10 @@ export default function App() {
       <AuthProvider>
       <Switch>
          <Route exact path="/" component={Home}/> 
+        <Route path="/signinoptions" component={SignInOptions}/> 
         <Route path="/register" component={Register}/> 
+        {/* <Route path="/register" component={RegisterParent}/>  */}
+
         <Route path="/login" component={Login}/> 
       </Switch>
       </AuthProvider>

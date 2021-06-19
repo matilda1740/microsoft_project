@@ -4,6 +4,19 @@ import { useAuth } from '../contexts/AuthContext'
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 
+/* 
+
+FARMER ACCOUNT
+1. First and last name 
+2. Areas of Interest: Crops, 
+3. Region - County, Sub county
+4. Phone Number, Confirm and Email Password 
+5. DOB, Gender, 
+6. 
+
+PARENT COMPONENT 
+
+*/
 export default function Register() {
 
     const { registerUser } = useAuth(); 
@@ -51,60 +64,50 @@ export default function Register() {
         }
     }
 
-
     return (
         <section className="registeration_section">
-            <h5>Farmer Sign Up</h5>
+            <div className="login_logo">
+            <img src="/images/logo.png" alt="Site Logo" />
+            </div>
+            <h2>Farmer Sign Up</h2>
             <form className="registration_form" onSubmit={handleRegister}>
-{/* 
+                <label className="form_labels">First Name:</label>
+                <input type="email" id="form_input" className="form_inputs" name="register_fname"/>
+                <label className="form_labels">Last Name:</label>
+                <input type="password" id="form_input" className="form_inputs" name="register_lname" password=""/>
+
+                <label className="form_labels">Email:</label>
+                <input type="email" id="form_input" className="form_inputs" name="register_email"/>
+                <label className="form_labels">Password:</label>
+                <input type="password" id="form_input" className="form_inputs" name="register_pass" password=""/>
+
                 <div className="form_row">
-                    <label className="form_labels">First Name:</label>
-                    <input className="form_inputs"/>
-                    <label className="form_labels">Last Name:</label>
-                    <input className="form_inputs"/>
-                </div> */}
-                <div className="form_row">
-                    <label className="form_labels">Email:</label>
-                    <input type="email" id="form_input" className="form_inputs" name="register_email"/>
-                    <label className="form_labels">Password:</label>
+                    <label className="form_labels">Date of Birth:</label>
+                    {/* CALENDER SELECTION */}
+                    <input type="password" id="form_input" className="form_inputs" name="register_pass" password=""/>
+
+                    <label className="form_labels">Gender:</label>
+                    {/* GENDER SELECTION */}
                     <input type="password" id="form_input" className="form_inputs" name="register_pass" password=""/>
                 </div>
-                {/* <div className="form_row">
-                    <label className="form_labels">Phone Number: </label>
-                    <input className="form_inputs"/>
-                </div>                      
                 <div className="form_row">
-                    <label className="form_labels">Email: </label>
-                    <input className="form_inputs"/>
-                </div>                                           <div className="form_row">
-                    <label className="form_labels">Password: </label>
-                    <input className="form_inputs"/>
-                </div>      
-                    <div className="form_row">
-                    <label className="form_labels">Confrim Password: </label>
-                    <input className="form_inputs"/>
-                </div>   */}
-                    {/* <div className="form_row">
-                    <label className="">County: </label>
-                    <input className=""/>
-                </div>   
-                <div className="form_row">
-                    <label className="">Confrim Email: </label>
-                    <input className=""/>
-                </div>                                 */}
-                <div className="form_row solo_form_btn">
-                    <button type="submit" className="form_btn ">Register</button>
-                </div>
-                <div className="form_row">
-                    <button>Login</button>
+                    <label className="form_labels">Country:</label>
+                    {/* CALENDER SELECTION */}
+                    <input type="password" id="form_input" className="form_inputs" name="register_pass" password=""/>
 
-                    <button>
-                        Cancel
-                    </button>
+                    <label className="form_labels">County:</label>
+                    {/* GENDER SELECTION */}
+                    <input type="password" id="form_input" className="form_inputs" name="register_pass" password=""/>
                 </div>
+
+                {/* FARMING AREAS OF INTEREST */}
+
+                <button type="submit" className="form_btn ">Register</button>
             </form>
-
+            <div className="login_footer">
             <p>Already have an account? <Link to='/login'>Log In</Link></p>
+            </div>
+           
         </section>
     )
 }

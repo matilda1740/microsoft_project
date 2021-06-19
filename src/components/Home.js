@@ -1,46 +1,54 @@
 import React from 'react'
 import './Home.css'
-
+import Header from './Header';
+import { EcoRounded } from '@material-ui/icons';
 import { useAuth } from '../contexts/AuthContext'
-import { Link } from 'react-router-dom';
 
 export default function Home() {
 
-    const { currentUser, logoutUser } = useAuth();
-
-    const handleLogOut = async () => {
-
-        try {
-            await logoutUser();
-        }catch(error){
-            console.log("LOGOUT ERROR: ", error)
-        }
-    }
+    const { currentUser } = useAuth();
 
     return (
         <section className="home_page_section">
-            <p>Hello, { currentUser ? currentUser.email : 
-            `Guest` }
-            </p>
+            <Header />
 
-            {
-                currentUser ? 
-                <button onClick={handleLogOut}>Logout</button>
-                : 
-                <>
-                <Link to="/register">
-                <button>Sign Up</button></Link>
-                <Link to="/login">
-                <button>Sign In</button>
-                </Link>
-                </>
+            <div className="home_main_section">
+                <div className="home_left">
+                    <div className="greeting_section">
+                        <h3>Welcome, { currentUser ? currentUser.email :  `Guest` }
+                        </h3>
+                    </div>
+                    <img src="/images/fact.jpeg" alt="farm" srcset="" />
+                </div>
 
-            }
-            
+                <div className="home_right">
 
+                    <h3>OUR <br /> PROJECT</h3> 
+                    <div className="selection_box">
+                        <div className="select_box_left">
+                            <EcoRounded />
+                        </div>
+                        <div className="select_box_right">
+                            <h5>Project One</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, expedita.</p>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, alias.</p>
+                        </div>
+                    </div>
 
+                    <div className="selection_box">
+                        <div className="select_box_left">
+                            <EcoRounded />
+                        </div>
+                        <div className="select_box_right">
+                            <h5>Project Two</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, expedita.</p>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, alias.</p>
+                        </div>
+                    </div>
 
-
+                    <button className="btn">Explore</button>                   
+                </div>
+            </div>
         </section>
     )
 }

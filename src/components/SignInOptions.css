@@ -1,0 +1,45 @@
+.options_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.signInbtns {
+  outline: none;
+  border: none;
+  width: 80%;
+  text-decoration: none;
+
+  border-radius: 25px;
+
+  padding: 7.5px;
+  font-size: large;
+  box-shadow: rgba(199, 199, 199, 0.671) 0px 0px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  color: #000000;
+  transition: 0.3s;
+}
+.signInbtns * {
+  margin: 0 10px 0 0;
+}
+.signInbtns:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+.mail_icon {
+  background-color: #d2042d;
+}
+.google_icon {
+  background-color: #1778f2;
+}
+.phone_icon {
+  background-color: #e35335;
+}
+.fb_icon {
+  background-color: #3b5998;
+}
