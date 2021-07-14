@@ -90,3 +90,11 @@
 .login_footer a {
   color: black;
 }
+
+/* STEP THREE */
+.form_row {
+  display: flex;
+}
+.display_labels {
+  width: 50%;
+}

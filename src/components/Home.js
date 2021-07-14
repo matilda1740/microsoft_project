@@ -3,6 +3,7 @@ import './Home.css'
 import Header from './Header';
 import { EcoRounded } from '@material-ui/icons';
 import { useAuth } from '../contexts/AuthContext'
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -18,7 +19,7 @@ export default function Home() {
                         <h3>Welcome, { currentUser ? currentUser.email :  `Guest` }
                         </h3>
                     </div>
-                    <img src="/images/fact.jpeg" alt="farm" srcset="" />
+                    <img src="/images/fact.jpeg" alt="farm"/>
                 </div>
 
                 <div className="home_right">
@@ -46,7 +47,10 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <button className="btn">Explore</button>                   
+                    <Link to="/weather">
+                        <button className="btn">Get Weather Information</button>  
+                    </Link>
+                                     
                 </div>
             </div>
         </section>

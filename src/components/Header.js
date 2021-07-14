@@ -18,7 +18,7 @@ export default function Header() {
     return (
         <section className="header_section">
             <div className="header_logo">
-                <img src="/images/logo.png" alt="Site Logo" srcset="" />
+                <img src="/images/logo.png" alt="Site Logo" />
             </div>
             <div className="header_mid_nav">
             </div>
