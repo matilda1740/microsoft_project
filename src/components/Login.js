@@ -54,7 +54,7 @@ export default function Login() {
                 <label className="form_labels">Password:</label>
                 <input type="password" id="form_input" className="form_inputs" name="login_pass" password=""/>
 
-                <button type="submit" className="form_btn ">Log In</button>
+                <button type="submit" className="form_btn">Log In</button>
             </form>
 
             <div className="login_footer">

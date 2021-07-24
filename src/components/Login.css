@@ -2,7 +2,8 @@
 .registeration_section,
 .signInOptions_section,
 .registeration_parent,
-.step_one_section {
+.step_one_section,
+.weather_section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +69,7 @@
   border: none;
 }
 .form_btn {
-  margin-top: 20px;
+  margin: 20px 0;
   transition: 0.3s;
   background-color: #004600;
   color: #dcdcdc;

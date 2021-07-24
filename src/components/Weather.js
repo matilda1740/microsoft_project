@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import axios from '../components/axios'
-
+import './Login.css'
+import './Weather.css'
 export default function Weather() {
     //  CASE 1: LOGGED : READ LOCATION FROM USER DETAILS
     // CASE 2: ANONYMOUS/ GUEST : ENTER LOCATION
@@ -16,9 +17,10 @@ export default function Weather() {
 
     const [name, setName] = useState("");
     const [temp, setTemp] = useState("");
+    const [hum, setHum] = useState("");
+    const [weatherDesc, setWeatherDesc] = useState("");
+    const [weatherMain, setweatherMain] = useState("");
     const [forecastDate, setForecastDate] = useState("");
-
-
 
     const formatDate = (date) => {
         let data = date.split('-');
@@ -51,6 +53,10 @@ export default function Weather() {
             
             setName(apiResponse.city.name)
             setTemp(Math.floor( (apiResponse.list[0].main.temp - 273.15) * 100) / 100)
+            setHum(apiResponse.list[0].main.humidity)
+            setWeatherDesc(apiResponse.list[0].weather[0].description)
+            setweatherMain(apiResponse.list[0].weather[0].main)
+
             let fdate = new Date(apiResponse.list[0].dt)
             console.log(fdate)
             // setForecastDate(fdate)
@@ -66,26 +72,36 @@ export default function Weather() {
             setLocation(e.target.value)
         }else if(e.target.name === "forecast_date"){
             formatDate(e.target.value)
+            setForecastDate(e.target.value)
         }
-        // console.log(e.target.value);
     }
 
 
     return (
-        <div className="weather_section registeration_section">
-            <form className="registeration_form" onSubmit={handleSubmit}>
-                <label>Enter County Name:</label>
-                <input type="text" name="forecast_location" onChange={handleChange}/>
-                <label>Enter Forecast Date (Range 0 - 6):</label>
-                <input type="date" id="forecast_date" name="forecast_date" onChange={handleChange}/>                
-                <button type="submit">Forecast</button>
+        <div className="weather_section registration_section">
+            <div className="login_logo">
+            <img src="/images/logo.png" alt="Site Logo" />
+            </div>
+            <h2>Weather Forecast</h2>
+            <form className="registration_form" onSubmit={handleSubmit}>
+                <label className="form_labels">Enter County Name:</label>
+                <input className="form_inputs"  type="text" name="forecast_location" onChange={handleChange}/>
+                <label className="form_labels">Enter Forecast Date (Range 0 - 6):</label>
+                <input className="form_inputs"  type="date" id="forecast_date" name="forecast_date" onChange={handleChange}/>                
+                <button className="form_btn" type="submit">Forecast</button>
             </form>
             <div className="weather_response_div">
                 {
                     name &&
-                    <p>
-                    The temperature in {name} on {forecastDate} will be ${temp}℃
-                    </p>
+                    <>
+                        <h4>Weather Forecast for {name} County on {forecastDate}</h4>
+                        <p>
+                            Weather: {weatherMain} <br />
+                            Description: {weatherDesc} <br />
+                            Temperature: {temp}℃ <br /> 
+                            Humidity: {hum} 
+                        </p>
+                    </>                    
                 }              
             </div>
         </div>
